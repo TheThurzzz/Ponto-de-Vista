@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ponto de Vista | Arena de Debates</title>
+
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--bg:#101218;--panel:#191e29;--line:#303746;--muted:#a4adbd;--white:#f5f6fa}
@@ -49,15 +50,35 @@ h2{font-size:30px;margin-bottom:12px}
 footer{text-align:center;border-top:1px solid var(--line);padding:30px;color:var(--muted);font-size:12px}
 .modal{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;padding:20px;z-index:10}
 .modal.show{display:flex}
-.modal-box{background:#191e29;border:1px solid #40495b;border-radius:15px;padding:28px;max-width:470px;width:100%}
+.modal-box{background:#191e29;border:1px solid #40495b;border-radius:15px;padding:28px;max-width:650px;width:100%}
 .modal-box p{color:var(--muted);line-height:1.7;margin:15px 0}
-@media(max-width:650px){header{padding:0 18px}nav{display:none}.hero{padding-top:70px}.stats{gap:20px}.selection{align-items:flex-start}}
+#chatMessages{height:300px;overflow-y:auto;background:#101218;border:1px solid #303746;border-radius:10px;padding:14px;margin:18px 0}
+#chatForm{display:flex;gap:8px}
+#chatInput{flex:1;min-width:0;background:#252c3a;color:white;border:1px solid #485064;border-radius:9px;padding:13px}
+#sendButton:disabled{opacity:.5;cursor:wait}
+@media(max-width:650px){
+header{padding:0 18px}
+nav{display:none}
+.hero{padding-top:70px}
+.stats{gap:20px}
+.selection{align-items:flex-start}
+.modal-box{padding:20px}
+#chatForm{flex-direction:column}
+#chatForm button{width:100%}
+}
 </style>
 </head>
+
 <body>
+
 <header>
  <div class="logo"><span class="logo-icon">PV</span><span>PONTO DE VISTA</span></div>
- <nav><a href="#inicio">Início</a><a href="#ideologias">Ideologias</a><a href="#temas">Temas</a><a href="#sobre">Sobre</a></nav>
+ <nav>
+  <a href="#inicio">Início</a>
+  <a href="#ideologias">Ideologias</a>
+  <a href="#temas">Temas</a>
+  <a href="#sobre">Sobre</a>
+ </nav>
  <a href="#ideologias" class="button primary" style="text-decoration:none;font-size:13px">Debater ↗</a>
 </header>
 
@@ -83,6 +104,7 @@ footer{text-align:center;border-top:1px solid var(--line);padding:30px;color:var
  <div class="eyebrow">01 / ESCOLHA SEU INTERLOCUTOR</div>
  <h2>Com quem você quer debater?</h2>
  <p class="sub">Selecione uma posição do espectro político para conhecer seus argumentos.</p>
+
  <div class="grid" id="choices">
   <button class="card" data-name="Esquerda radical"><div class="stripe" style="background:#991b1b"></div><b>Esquerda radical</b><p>Transformações profundas na estrutura econômica e social.</p></button>
   <button class="card" data-name="Esquerda"><div class="stripe" style="background:#dc4545"></div><b>Esquerda</b><p>Igualdade social, redistribuição e atuação estatal.</p></button>
@@ -92,6 +114,7 @@ footer{text-align:center;border-top:1px solid var(--line);padding:30px;color:var
   <button class="card" data-name="Direita"><div class="stripe" style="background:#3978c5"></div><b>Direita</b><p>Livre iniciativa, tradição e menor intervenção estatal.</p></button>
   <button class="card" data-name="Direita radical"><div class="stripe" style="background:#173d83"></div><b>Direita radical</b><p>Nacionalismo intenso, autoridade e mudanças na ordem política.</p></button>
  </div>
+
  <div class="selection">
   <div><small>SUA SELEÇÃO</small><h3 id="selected" style="margin-top:7px">Centro</h3></div>
   <button class="primary" id="start">Preparar debate →</button>
@@ -105,9 +128,20 @@ footer{text-align:center;border-top:1px solid var(--line);padding:30px;color:var
  <h2>O que vamos discutir?</h2>
  <p class="sub">Escolha uma área de interesse para o seu debate.</p>
  <div class="topics" id="topics">
-  <button class="topic active">Economia</button><button class="topic">Educação</button><button class="topic">Saúde pública</button><button class="topic">Segurança pública</button><button class="topic">Desigualdade social</button><button class="topic">Liberdade individual</button><button class="topic">Meio ambiente</button><button class="topic">Política internacional</button><button class="topic">Democracia e instituições</button>
+  <button class="topic active">Economia</button>
+  <button class="topic">Educação</button>
+  <button class="topic">Saúde pública</button>
+  <button class="topic">Segurança pública</button>
+  <button class="topic">Desigualdade social</button>
+  <button class="topic">Liberdade individual</button>
+  <button class="topic">Meio ambiente</button>
+  <button class="topic">Política internacional</button>
+  <button class="topic">Democracia e instituições</button>
  </div>
- <div class="selection"><div><small>TEMA SELECIONADO</small><h3 id="selectedTopic" style="margin-top:7px">Economia</h3></div><span style="color:#a4adbd;font-size:13px">Brasil e mundo</span></div>
+ <div class="selection">
+  <div><small>TEMA SELECIONADO</small><h3 id="selectedTopic" style="margin-top:7px">Economia</h3></div>
+  <span style="color:#a4adbd;font-size:13px">Brasil e mundo</span>
+ </div>
 </section>
 
 <section id="sobre">
@@ -121,40 +155,145 @@ footer{text-align:center;border-top:1px solid var(--line);padding:30px;color:var
  </div>
 </section>
 </main>
+
 <footer>© 2026 PONTO DE VISTA — PLURALIDADE • ARGUMENTAÇÃO • PENSAMENTO CRÍTICO</footer>
 
 <div class="modal" id="modal">
  <div class="modal-box">
   <button id="close" style="float:right;background:transparent;color:white;font-size:22px;padding:0">×</button>
-  <div class="eyebrow">PREPARAÇÃO DO DEBATE</div>
-  <h2>Seu debate está configurado!</h2>
-  <p>Perspectiva da IA: <b id="confirmIdeology"></b><br>Assunto: <b id="confirmTopic"></b><br>Abrangência: Brasil e mundo.</p>
-  <p style="font-size:12px;color:#e8c98c">Esta é a primeira versão visual. A conexão com uma IA real será adicionada em uma próxima etapa.</p>
-  <button class="primary" id="ok" style="width:100%">Entendi</button>
+  <div class="eyebrow">PONTO DE VISTA / DEBATE AO VIVO</div>
+  <h2>Seu debate começou!</h2>
+  <p>Você está debatendo com uma IA de posição <b id="confirmIdeology"></b> sobre <b id="confirmTopic"></b>.</p>
+
+  <div id="chatMessages">
+   <p style="color:#a4adbd">Envie sua primeira mensagem para começar o debate.</p>
+  </div>
+
+  <form id="chatForm">
+   <input id="chatInput" type="text" placeholder="Digite seu argumento..." required>
+   <button class="primary" type="submit" id="sendButton">Enviar</button>
+  </form>
+
+  <p id="chatStatus" style="font-size:12px;color:#a4adbd;margin-top:10px"></p>
  </div>
 </div>
+
 <script>
-let ideology="Centro",topic="Economia";
-document.querySelectorAll(".card").forEach(card=>card.addEventListener("click",()=>{
- document.querySelectorAll(".card").forEach(c=>c.classList.remove("active"));
- card.classList.add("active");ideology=card.dataset.name;
- document.getElementById("selected").textContent=ideology;
-}));
-document.querySelectorAll(".topic").forEach(btn=>btn.addEventListener("click",()=>{
- document.querySelectorAll(".topic").forEach(b=>b.classList.remove("active"));
- btn.classList.add("active");topic=btn.textContent;
- document.getElementById("selectedTopic").textContent=topic;
-}));
-const modal=document.getElementById("modal");
-document.getElementById("start").onclick=()=>{
- document.getElementById("confirmIdeology").textContent=ideology;
- document.getElementById("confirmTopic").textContent=topic;
- modal.classList.add("show");
+let ideology = "Centro";
+let topic = "Economia";
+let history = [];
+
+document.querySelectorAll(".card").forEach(card => {
+  card.addEventListener("click", () => {
+    document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
+    card.classList.add("active");
+    ideology = card.dataset.name;
+    document.getElementById("selected").textContent = ideology;
+  });
+});
+
+document.querySelectorAll(".topic").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".topic").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    topic = btn.textContent;
+    document.getElementById("selectedTopic").textContent = topic;
+  });
+});
+
+const modal = document.getElementById("modal");
+const chatMessages = document.getElementById("chatMessages");
+const chatForm = document.getElementById("chatForm");
+const chatInput = document.getElementById("chatInput");
+const chatStatus = document.getElementById("chatStatus");
+const sendButton = document.getElementById("sendButton");
+
+document.getElementById("start").onclick = () => {
+  history = [];
+  chatMessages.innerHTML = '<p style="color:#a4adbd">Envie sua primeira mensagem para começar o debate.</p>';
+  chatStatus.textContent = "";
+  document.getElementById("confirmIdeology").textContent = ideology;
+  document.getElementById("confirmTopic").textContent = topic;
+  modal.classList.add("show");
+  chatInput.focus();
 };
-function closeModal(){modal.classList.remove("show")}
-document.getElementById("close").onclick=closeModal;
-document.getElementById("ok").onclick=closeModal;
-modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});
+
+function closeModal() {
+  modal.classList.remove("show");
+}
+
+document.getElementById("close").onclick = closeModal;
+
+modal.addEventListener("click", e => {
+  if (e.target === modal) closeModal();
+});
+
+function addMessage(who, text) {
+  const item = document.createElement("div");
+
+  item.style.cssText = "margin:10px 0;padding:11px 13px;border-radius:9px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere;" +
+    (who === "Você"
+      ? "background:#252c3a;margin-left:35px;"
+      : "background:#202b3b;margin-right:35px;border-left:3px solid #79a6d8;");
+
+  const label = document.createElement("strong");
+  label.textContent = who;
+  label.style.display = "block";
+  label.style.marginBottom = "5px";
+
+  const body = document.createElement("span");
+  body.textContent = text;
+
+  item.append(label, body);
+  chatMessages.appendChild(item);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+chatForm.addEventListener("submit", async e => {
+  e.preventDefault();
+
+  const message = chatInput.value.trim();
+  if (!message || sendButton.disabled) return;
+
+  if (chatMessages.querySelector("p")) {
+    chatMessages.innerHTML = "";
+  }
+
+  addMessage("Você", message);
+  chatInput.value = "";
+  chatStatus.textContent = "A IA está preparando seus argumentos...";
+  sendButton.disabled = true;
+
+  try {
+    const response = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message, ideology, topic, history })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || "Não foi possível obter uma resposta.");
+    }
+
+    addMessage("Ponto de Vista — " + ideology, data.reply);
+
+    history.push(
+      { role: "user", text: message },
+      { role: "model", text: data.reply }
+    );
+
+    chatStatus.textContent = "Sua vez de responder.";
+
+  } catch (error) {
+    chatStatus.textContent = "Erro: " + error.message;
+  } finally {
+    sendButton.disabled = false;
+    chatInput.focus();
+  }
+});
 </script>
+
 </body>
 </html>
