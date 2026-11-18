@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ponto de Vista | Arena de Debates</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#101218;--panel:#191e29;--line:#303746;--muted:#a4adbd;--white:#f5f6fa}
+body{background:var(--bg);color:var(--white);font-family:Arial,sans-serif}
+header{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 7%;position:sticky;top:0;background:#101218ed;z-index:5}
+.logo{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:1px}
+.logo-icon{background:#f1f2f5;color:#111827;padding:10px;border-radius:10px}
+nav{display:flex;gap:25px}
+nav a{color:#c3cad5;text-decoration:none;font-size:14px}
+nav a:hover{color:white}
+button,.button{cursor:pointer;border:0;border-radius:9px;padding:12px 18px;font-weight:bold}
+.primary{background:#f1f2f5;color:#111827}
+main{max-width:1100px;margin:auto;padding:0 25px}
+.hero{padding:100px 0 75px}
+.eyebrow{color:#b5bdca;font-size:12px;letter-spacing:3px;text-transform:uppercase;margin-bottom:25px}
+h1{font-size:clamp(40px,7vw,70px);line-height:1.08;max-width:800px;letter-spacing:-2px}
+.gradient{background:linear-gradient(90deg,#f2f2f5,#aab8d4,#d8a3a3);color:transparent;background-clip:text}
+.description{color:var(--muted);line-height:1.8;max-width:650px;margin:25px 0}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.secondary{background:transparent;border:1px solid #485064;color:white}
+.stats{display:flex;gap:45px;margin-top:65px}
+.stats b{font-size:22px;display:block}
+.stats span{font-size:12px;color:var(--muted)}
+section{padding:65px 0;scroll-margin-top:80px}
+.dark-section{background:#151a24;border-block:1px solid var(--line)}
+h2{font-size:30px;margin-bottom:12px}
+.sub{color:var(--muted);font-size:14px;line-height:1.7;margin-bottom:30px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:19px;text-align:left;color:white;cursor:pointer;transition:.2s}
+.card:hover,.card.active{border-color:#e4e7ee;background:#252c3a;transform:translateY(-2px)}
+.stripe{height:7px;border-radius:5px;margin-bottom:16px}
+.card p{font-size:13px;color:var(--muted);line-height:1.5;margin-top:9px}
+.selection{margin-top:25px;padding:22px;border:1px solid var(--line);border-radius:12px;background:var(--panel);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.selection small{color:var(--muted)}
+.topics{display:flex;gap:10px;flex-wrap:wrap}
+.topic{border:1px solid var(--line);background:var(--panel);color:white;border-radius:30px;padding:10px 16px}
+.topic.active{background:#f1f2f5;color:#111827}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px}
+.step{background:var(--panel);border:1px solid var(--line);padding:23px;border-radius:12px}
+.step strong{display:block;margin:14px 0 8px}
+.step p{color:var(--muted);font-size:14px;line-height:1.7}
+footer{text-align:center;border-top:1px solid var(--line);padding:30px;color:var(--muted);font-size:12px}
+.modal{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;padding:20px;z-index:10}
+.modal.show{display:flex}
+.modal-box{background:#191e29;border:1px solid #40495b;border-radius:15px;padding:28px;max-width:470px;width:100%}
+.modal-box p{color:var(--muted);line-height:1.7;margin:15px 0}
+@media(max-width:650px){header{padding:0 18px}nav{display:none}.hero{padding-top:70px}.stats{gap:20px}.selection{align-items:flex-start}}
+</style>
+</head>
+<body>
+<header>
+ <div class="logo"><span class="logo-icon">PV</span><span>PONTO DE VISTA</span></div>
+ <nav><a href="#inicio">Início</a><a href="#ideologias">Ideologias</a><a href="#temas">Temas</a><a href="#sobre">Sobre</a></nav>
+ <a href="#ideologias" class="button primary" style="text-decoration:none;font-size:13px">Debater ↗</a>
+</header>
+
+<main id="inicio">
+<section class="hero">
+ <div class="eyebrow">● UM ESPAÇO PARA PENSAR E QUESTIONAR</div>
+ <h1>Não basta ter uma opinião.<br><span class="gradient">É preciso saber defendê-la.</span></h1>
+ <p class="description">Entre em debates políticos com inteligências artificiais que representam diferentes posições ideológicas. Apresente seus argumentos, questione ideias e descubra outros pontos de vista.</p>
+ <div class="actions">
+  <a href="#ideologias" class="button primary" style="text-decoration:none">Escolher meu debate →</a>
+  <a href="#sobre" class="button secondary" style="text-decoration:none">Conhecer o projeto</a>
+ </div>
+ <div class="stats">
+  <div><b>7</b><span>Posições políticas</span></div>
+  <div><b>Vários</b><span>Temas de debate</span></div>
+  <div><b>IA</b><span>Debates interativos</span></div>
+ </div>
+</section>
+</main>
+
+<div class="dark-section">
+<section id="ideologias" style="max-width:1100px;margin:auto;padding-left:25px;padding-right:25px">
+ <div class="eyebrow">01 / ESCOLHA SEU INTERLOCUTOR</div>
+ <h2>Com quem você quer debater?</h2>
+ <p class="sub">Selecione uma posição do espectro político para conhecer seus argumentos.</p>
+ <div class="grid" id="choices">
+  <button class="card" data-name="Esquerda radical"><div class="stripe" style="background:#991b1b"></div><b>Esquerda radical</b><p>Transformações profundas na estrutura econômica e social.</p></button>
+  <button class="card" data-name="Esquerda"><div class="stripe" style="background:#dc4545"></div><b>Esquerda</b><p>Igualdade social, redistribuição e atuação estatal.</p></button>
+  <button class="card" data-name="Centro-esquerda"><div class="stripe" style="background:#e58a78"></div><b>Centro-esquerda</b><p>Reformas sociais e economia de mercado regulada.</p></button>
+  <button class="card active" data-name="Centro"><div class="stripe" style="background:#a1a1aa"></div><b>Centro</b><p>Equilíbrio entre diferentes propostas políticas.</p></button>
+  <button class="card" data-name="Centro-direita"><div class="stripe" style="background:#79a6d8"></div><b>Centro-direita</b><p>Mercado, responsabilidade fiscal e reformas.</p></button>
+  <button class="card" data-name="Direita"><div class="stripe" style="background:#3978c5"></div><b>Direita</b><p>Livre iniciativa, tradição e menor intervenção estatal.</p></button>
+  <button class="card" data-name="Direita radical"><div class="stripe" style="background:#173d83"></div><b>Direita radical</b><p>Nacionalismo intenso, autoridade e mudanças na ordem política.</p></button>
+ </div>
+ <div class="selection">
+  <div><small>SUA SELEÇÃO</small><h3 id="selected" style="margin-top:7px">Centro</h3></div>
+  <button class="primary" id="start">Preparar debate →</button>
+ </div>
+</section>
+</div>
+
+<main>
+<section id="temas">
+ <div class="eyebrow">02 / DEFINA O ASSUNTO</div>
+ <h2>O que vamos discutir?</h2>
+ <p class="sub">Escolha uma área de interesse para o seu debate.</p>
+ <div class="topics" id="topics">
+  <button class="topic active">Economia</button><button class="topic">Educação</button><button class="topic">Saúde pública</button><button class="topic">Segurança pública</button><button class="topic">Desigualdade social</button><button class="topic">Liberdade individual</button><button class="topic">Meio ambiente</button><button class="topic">Política internacional</button><button class="topic">Democracia e instituições</button>
+ </div>
+ <div class="selection"><div><small>TEMA SELECIONADO</small><h3 id="selectedTopic" style="margin-top:7px">Economia</h3></div><span style="color:#a4adbd;font-size:13px">Brasil e mundo</span></div>
+</section>
+
+<section id="sobre">
+ <div class="eyebrow">03 / COMO FUNCIONA</div>
+ <h2>Um debate de verdade começa com uma pergunta.</h2>
+ <p class="sub">Uma experiência para testar ideias, construir argumentos e conhecer diferentes perspectivas.</p>
+ <div class="steps">
+  <div class="step"><div style="font-size:25px">01</div><strong>Apresente sua posição</strong><p>Escolha um tema e exponha o que pensa sobre ele.</p></div>
+  <div class="step"><div style="font-size:25px">02</div><strong>Enfrente os argumentos</strong><p>A IA apresenta sua perspectiva, faz perguntas e responde às suas objeções.</p></div>
+  <div class="step"><div style="font-size:25px">03</div><strong>Reflita sobre o resultado</strong><p>Analise argumentos, pontos de concordância e divergência.</p></div>
+ </div>
+</section>
+</main>
+<footer>© 2026 PONTO DE VISTA — PLURALIDADE • ARGUMENTAÇÃO • PENSAMENTO CRÍTICO</footer>
+
+<div class="modal" id="modal">
+ <div class="modal-box">
+  <button id="close" style="float:right;background:transparent;color:white;font-size:22px;padding:0">×</button>
+  <div class="eyebrow">PREPARAÇÃO DO DEBATE</div>
+  <h2>Seu debate está configurado!</h2>
+  <p>Perspectiva da IA: <b id="confirmIdeology"></b><br>Assunto: <b id="confirmTopic"></b><br>Abrangência: Brasil e mundo.</p>
+  <p style="font-size:12px;color:#e8c98c">Esta é a primeira versão visual. A conexão com uma IA real será adicionada em uma próxima etapa.</p>
+  <button class="primary" id="ok" style="width:100%">Entendi</button>
+ </div>
+</div>
+<script>
+let ideology="Centro",topic="Economia";
+document.querySelectorAll(".card").forEach(card=>card.addEventListener("click",()=>{
+ document.querySelectorAll(".card").forEach(c=>c.classList.remove("active"));
+ card.classList.add("active");ideology=card.dataset.name;
+ document.getElementById("selected").textContent=ideology;
+}));
+document.querySelectorAll(".topic").forEach(btn=>btn.addEventListener("click",()=>{
+ document.querySelectorAll(".topic").forEach(b=>b.classList.remove("active"));
+ btn.classList.add("active");topic=btn.textContent;
+ document.getElementById("selectedTopic").textContent=topic;
+}));
+const modal=document.getElementById("modal");
+document.getElementById("start").onclick=()=>{
+ document.getElementById("confirmIdeology").textContent=ideology;
+ document.getElementById("confirmTopic").textContent=topic;
+ modal.classList.add("show");
+};
+function closeModal(){modal.classList.remove("show")}
+document.getElementById("close").onclick=closeModal;
+document.getElementById("ok").onclick=closeModal;
+modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});
+</script>
+</body>
+</html>
